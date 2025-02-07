@@ -1,0 +1,75 @@
+.res_forms {
+    display: flex;
+    gap: 10px;
+}
+
+.results-steps {
+    margin: 0 auto;
+    display: flex;
+    width: 80%;
+    min-height: 35px; 
+    min-width: 450px; 
+    max-height: 100%; 
+    flex-direction: column;
+    padding: 0.5rem 0.3rem;
+    border: 2px solid black;
+    border-radius: 8px;
+    //box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+.results-steps_actions {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.results-steps_btn {
+    flex: 0 0 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 0px solid grey;
+	//margin: auto;
+	background-color: transparent;
+	//padding-bottom: 10px;
+	//fontcolor: red;
+    //border-radius: 25%;
+    //box-shadow: 0 5px 5px rgba(0, 0, 0, 0.25), 0 5px 5px rgba(0, 0, 0, 0.22);
+    //transition: box-shadow 0.3s;
+}
+
+.results-steps_btn:hover {
+    box-shadow: 0 0 5px 0 grey;
+    cursor: pointer;
+}
+
+.results-steps_btn-edit:hover {
+	box-shadow: 0 0 5px 0 blue;
+}
+
+.results-steps_btn-remove:hover {
+	box-shadow: 0 0 5px 0 red;
+}
+
+
+.results-steps_btn::after {
+    line-height: 100%;
+}
+
+.results-steps_btn-edit::after {
+    content: "\270E";
+    color: green;
+}
+
+.results-steps_btn-remove::after {
+    content: "\2718";
+    color: #ff0000;
+}
+
+.steps-columns {
+    margin-top: 5px;
+    display: flex;
+    gap: 100px;
+    justify-content: center;
+    align-items: center;
+}

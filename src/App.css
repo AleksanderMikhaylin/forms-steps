@@ -1,0 +1,30 @@
+
+
+.steps { 
+  display: flex;
+  margin: 0 auto;
+  width: 40%;
+  flex-direction: column;
+}
+
+.res_forms {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.res_header {
+  margin: 0 auto;
+  display: flex;
+  gap: 60px;
+  justify-content: center;
+}
+
+.res_distance {
+  padding-left: 20px;
+}
+
+.res_data {
+  padding-left: 25px;
+}
