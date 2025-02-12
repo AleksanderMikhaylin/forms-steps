@@ -1,8 +1,9 @@
+import React from 'react';
 import './FormSteps.css'
 import PropTypes from 'prop-types';
 
 export const FormSteps = ({ form, setForm, addResult} ) => {
-    const regDate = /^\d{2}\.\d{2}\.\d{4}$/;
+    const regDate = /^\d{4}\-\d{2}\-\d{2}$/;
     const regDistance = /^\d+\.?\d*$/;
 
     const handleInputChange = (event) => {
@@ -13,6 +14,7 @@ export const FormSteps = ({ form, setForm, addResult} ) => {
     const handleSubmit = (event) => {
         event.preventDefault();
         if (!regDate.test(form.date) || !regDistance.test(form.distance)) return;
+        //if (!regDistance.test(form.distance)) return;
         addResult(form)
         setForm({ date: '', distance: '' })
     }
@@ -21,7 +23,7 @@ export const FormSteps = ({ form, setForm, addResult} ) => {
     <form className="form_steps" onSubmit={handleSubmit}>
         <div className="form_step_date">
             <label className="form_step_label">Дата</label>
-            <input 
+            <input type="date"
             className="form_step_input" 
             name={'date'}
             value={form.date}
@@ -30,7 +32,7 @@ export const FormSteps = ({ form, setForm, addResult} ) => {
         </div>
         <div className="form_step_distance">
             <label className="form_step_label">Пройдено</label>
-            <input 
+            <input type="number" 
             className="form_step_input" 
             name={'distance'}
             value={form.distance} 
