@@ -1,6 +1,8 @@
 .res_forms {
     display: flex;
-    gap: 10px;
+    justify-content: center;
+    align-items: flex-end;
+	gap: 10px;
 }
 
 .results-steps {
