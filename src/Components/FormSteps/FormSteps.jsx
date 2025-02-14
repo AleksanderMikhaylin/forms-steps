@@ -3,7 +3,7 @@ import './FormSteps.css'
 import PropTypes from 'prop-types';
 
 export const FormSteps = ({ form, setForm, addResult} ) => {
-    const regDate = /^\d{4}\-\d{2}\-\d{2}$/;
+    const regDate = /^\d{4}-\d{2}-\d{2}$/;
     const regDistance = /^\d+\.?\d*$/;
 
     const handleInputChange = (event) => {
@@ -16,15 +16,17 @@ export const FormSteps = ({ form, setForm, addResult} ) => {
         if (!regDate.test(form.date) || !regDistance.test(form.distance)) return;
         //if (!regDistance.test(form.distance)) return;
         addResult(form)
-        setForm({ date: '', distance: '' })
+        setForm({ date: '', distance: '' , editNow: undefined})
     }
-  
+
+    let className_form_step_input = (form._id === undefined) ? "form_step_input" : "form_step_input form_step_input_disabled";
+
     return (
     <form className="form_steps" onSubmit={handleSubmit}>
         <div className="form_step_date">
             <label className="form_step_label">Дата</label>
             <input type="date"
-            className="form_step_input" 
+            className={className_form_step_input}
             name={'date'}
             value={form.date}
             onChange={handleInputChange}

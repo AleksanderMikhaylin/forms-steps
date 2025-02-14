@@ -49,3 +49,9 @@
   box-shadow: 0 0 5px 0 green;
   cursor: pointer;
 }
+
+.form_step_input_disabled {
+  pointer-events: none; /* Отключает все события мыши */
+  opacity: 0.6; /* Делает элемент полупрозрачным, чтобы показать, что он неактивен */
+  user-select: none; /* Запрещает выделение текста */
+}
