@@ -3,10 +3,12 @@ import './ResForms.css'
 import PropTypes from 'prop-types';
 
 export const ResForms = ({ results, btnEdit,  btnRemove }) => {
+  const isEdition = results.find((o) => o.editNow);
+
   return (
-    <div className={'results-steps'}>
+    <div className={(isEdition) ? 'results-steps results-steps-edit' : 'results-steps'}>
       {results.map((result) =>
-        <div className={'steps-columns'} key={result.date}>
+        <div className={!result.editNow ? 'steps-columns' : 'steps-columns steps-columns-edit'} key={result.date}>
           <div className={'steps-column-1'}>{result.date}</div>
           <div className={'steps-column-2'}>{result.distance}</div>
           <div className={'results-steps_actions'}>

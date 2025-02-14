@@ -19,7 +19,7 @@ export const FormSteps = ({ form, setForm, addResult} ) => {
         setForm({ date: '', distance: '' , editNow: undefined})
     }
 
-    let className_form_step_input = (form._id === undefined) ? "form_step_input" : "form_step_input form_step_input_disabled";
+    let className_form_step_input = (!form.editNow) ? "form_step_input" : "form_step_input form_step_input_disabled";
 
     return (
     <form className="form_steps" onSubmit={handleSubmit}>

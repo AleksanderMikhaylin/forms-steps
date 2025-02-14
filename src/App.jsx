@@ -4,22 +4,20 @@ import './App.css'
 import { FormSteps } from './Components/FormSteps/FormSteps'
 import { ResForms } from './Components/ResForms/ResForms'
 
-let _id = 0;
-
 function App() {
 
   const
-    [form, setForm] = useState({ date: '', distance: '', _id: undefined }),
+    [form, setForm] = useState({ date: '', distance: '', editNow: false}),
     [results, setRes] = useState([]);
 
   const handleAdd = (form) => {
-    _id = _id + 1;
     const newResults = [...results];
     const sameDate = newResults.find((o) => o.date === form.date);
     if (sameDate) {
-      sameDate.distance = parseFloat(form.distance) + (form._id === undefined ? parseFloat(sameDate.distance) : 0);
+      sameDate.editNow = false;
+      sameDate.distance = parseFloat(form.distance) + (!form.editNow ? parseFloat(sameDate.distance) : 0);
     } else {
-      form._id = _id;
+      form.editNow = false;
       newResults.push(form);
       newResults.sort((a, b) => Date.parse(b.date) - Date.parse(a.date));
     }
@@ -29,6 +27,7 @@ function App() {
   };
 
   const btnEdit = (result) => {
+    result.editNow = true;
     setForm(result);
   }
 
